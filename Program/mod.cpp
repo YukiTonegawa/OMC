@@ -33,9 +33,9 @@ bool is_pow2(int x) {
 }
 
 int main() {
-    static constexpr bool prime_only_mode = true;
-    static constexpr bool pow2_only_mode = false;
-    static constexpr int maxM = 150;
+    static constexpr bool prime_only_mode = false;
+    static constexpr bool pow2_only_mode = true;
+    static constexpr int maxM = 512;
 
     for (int m = 1; m <= maxM; m++) {
         if (prime_only_mode && !is_prime(m)) continue;
@@ -65,6 +65,12 @@ int main() {
                 } else {
                     std::cout << "mod" << m << " " << i << "/" << j << "≡" << (i * x) % m << '\n';
                 }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            int x = 1;
+            for (int j = 0; j < m; j++, x = (x * i) % m) {
+                std::cout << "mod" << m << " " << i << "^" << j << "≡" << x << '\n';
             }
         }
         std::cout << '\n';
