@@ -4,34 +4,6 @@
 
 using ull = long long;
 
-void print_factorial(int N) {
-    assert(1 <= N && N <= 20);
-    std::cout << "factorial" << '\n';
-    ull x = 1;
-    for (int i = 1; i <= N; i++) {
-        x *= i;
-        std::cout << "F_" << i << " : " << x << '\n';
-    }
-    std::cout << '\n';
-}
-
-void print_fibonacci(int N) {
-    assert(1 <= N && N <= 60);
-    std::cout << "fibonacci" << '\n';
-    ull x = 0, y = 1;
-    std::cout << "F_1" << " : " << 0 << '\n';
-    if (N == 1) return;
-    std::cout << "F_2" << " : " << 1 << '\n';
-    
-    for (int i = 3; i <= N; i++) {
-        ull z = x + y;
-        x = y;
-        y = z;
-        std::cout << "F_" << i << " : " << z << '\n';
-    }
-    std::cout << '\n';
-}
-
 void print_binomial(int N) {
     assert(1 <= N && N <= 33);
     using u128 = __uint128_t;
@@ -117,8 +89,6 @@ void print_binomial2(int N) {
 }
 
 int main() {
-    print_factorial(15);
-    print_fibonacci(60);
     print_binomial(33);
     print_binomial2(33);
 }
